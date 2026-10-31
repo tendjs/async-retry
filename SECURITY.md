@@ -2,7 +2,7 @@
 
 ## Reporting a vulnerability
 
-Please do not open a public issue. Use [GitHub private vulnerability reporting](https://github.com/nyxs1874/pkg-placeholder/security/advisories/new) instead.
+Please do not open a public issue. Use [GitHub private vulnerability reporting](https://github.com/nyxs1874/async-retry/security/advisories/new) instead.
 
 You can expect a first response within 7 days. Confirmed issues get a fix, a regression test and a GitHub security advisory.
 

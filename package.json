@@ -1,18 +1,25 @@
 {
-  "name": "@nyxs1874/pkg-placeholder",
+  "name": "@nyxs1874/async-retry",
   "type": "module",
   "version": "0.0.0",
   "packageManager": "pnpm@12.15.0",
-  "description": "_description_",
+  "description": "Retrying made simple, easy and async. Maintained drop-in replacement for async-retry.",
   "author": "Adnan Labiadh <224436613+nyxs1874@users.noreply.github.com>",
   "license": "MIT",
-  "homepage": "https://github.com/nyxs1874/pkg-placeholder#readme",
+  "homepage": "https://github.com/nyxs1874/async-retry#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nyxs1874/pkg-placeholder.git"
+    "url": "git+https://github.com/nyxs1874/async-retry.git"
   },
-  "bugs": "https://github.com/nyxs1874/pkg-placeholder/issues",
-  "keywords": [],
+  "bugs": "https://github.com/nyxs1874/async-retry/issues",
+  "keywords": [
+    "retry",
+    "async",
+    "promise",
+    "backoff",
+    "exponential-backoff",
+    "async-retry"
+  ],
   "sideEffects": false,
   "exports": {
     ".": {
@@ -25,6 +32,7 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.cts",
   "files": [
+    "NOTICE.md",
     "dist"
   ],
   "engines": {
@@ -67,6 +75,7 @@
     "@arethetypeswrong/core": "catalog:cli",
     "@types/node": "catalog:types",
     "@vitest/coverage-v8": "catalog:testing",
+    "async-retry": "catalog:testing",
     "bumpp": "catalog:cli",
     "eslint": "catalog:cli",
     "eslint-plugin-slop": "catalog:cli",
@@ -75,6 +84,7 @@
     "knip": "catalog:cli",
     "nano-staged": "catalog:cli",
     "publint": "catalog:cli",
+    "retry": "catalog:testing",
     "simple-git-hooks": "catalog:cli",
     "taze": "catalog:cli",
     "tsdown": "catalog:cli",

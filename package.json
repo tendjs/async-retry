@@ -1,0 +1,94 @@
+{
+  "name": "@nyxs1874/pkg-placeholder",
+  "type": "module",
+  "version": "0.0.0",
+  "packageManager": "pnpm@12.15.0",
+  "description": "_description_",
+  "author": "Adnan Labiadh <224436613+nyxs1874@users.noreply.github.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/nyxs1874/pkg-placeholder#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nyxs1874/pkg-placeholder.git"
+  },
+  "bugs": "https://github.com/nyxs1874/pkg-placeholder/issues",
+  "keywords": [],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.cts",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "knip": "knip",
+    "lint": "eslint --cache",
+    "prepack": "pnpm run build",
+    "release": "bumpp",
+    "start": "tsx src/index.ts",
+    "test": "pnpm run build && vitest",
+    "coverage": "pnpm run build && vitest run --coverage",
+    "typecheck": "tsc",
+    "ci": "pnpm run lint && pnpm run typecheck && pnpm run knip && pnpm run coverage",
+    "prepare": "git config core.hooksPath .githooks && simple-git-hooks"
+  },
+  "scripts-info": {
+    "build": "Build ESM + CJS + types, then run publint and attw",
+    "dev": "Rebuild on change during development",
+    "knip": "Find unused files, exports and dependencies",
+    "lint": "Check for code style issues",
+    "prepack": "Build before publishing",
+    "release": "Bump version and push a tag; CI publishes",
+    "start": "Run the entry file",
+    "test": "Run the test suite in watch mode",
+    "coverage": "Run the test suite once with the 100% coverage gate",
+    "typecheck": "Check types",
+    "ci": "Run the full continuous integration pipeline",
+    "prepare": "Set up git hooks"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "catalog:cli",
+    "@arethetypeswrong/core": "catalog:cli",
+    "@types/node": "catalog:types",
+    "@vitest/coverage-v8": "catalog:testing",
+    "bumpp": "catalog:cli",
+    "eslint": "catalog:cli",
+    "eslint-plugin-slop": "catalog:cli",
+    "eslint-plugin-sonarjs": "catalog:cli",
+    "fast-check": "catalog:testing",
+    "knip": "catalog:cli",
+    "nano-staged": "catalog:cli",
+    "publint": "catalog:cli",
+    "simple-git-hooks": "catalog:cli",
+    "taze": "catalog:cli",
+    "tsdown": "catalog:cli",
+    "tsdown-stale-guard": "catalog:testing",
+    "tsnapi": "catalog:testing",
+    "tsx": "catalog:cli",
+    "typescript": "catalog:cli",
+    "vite": "catalog:cli",
+    "vitest": "catalog:testing"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm i --frozen-lockfile --ignore-scripts --offline && pnpm run ci && pnpx nano-staged"
+  },
+  "nano-staged": {
+    "*.{js,ts,tsx,json,css,md,yaml,vue}": "eslint --fix --no-warn-ignored"
+  }
+}

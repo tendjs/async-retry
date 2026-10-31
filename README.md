@@ -151,8 +151,8 @@ Based on [`async-retry`](https://github.com/vercel/async-retry) by Guillermo Rau
 [npm-version-href]: https://npmx.dev/package/@tendjs/async-retry
 [npm-downloads-src]: https://img.shields.io/npm/dm/@tendjs/async-retry?style=flat&colorA=080f12&colorB=1fa669
 [npm-downloads-href]: https://npmx.dev/package/@tendjs/async-retry
-[bundle-src]: https://img.shields.io/bundlephobia/minzip/@tendjs/async-retry?style=flat&colorA=080f12&colorB=1fa669&label=minzip
-[bundle-href]: https://bundlephobia.com/result?p=@tendjs/async-retry
+[bundle-src]: https://deno.bundlejs.com/badge?q=@tendjs/async-retry
+[bundle-href]: https://bundlejs.com/?q=@tendjs/async-retry
 [ci-src]: https://img.shields.io/github/actions/workflow/status/tendjs/async-retry/ci.yml?style=flat&colorA=080f12&label=CI
 [ci-href]: https://github.com/tendjs/async-retry/actions/workflows/ci.yml
 [license-src]: https://img.shields.io/github/license/tendjs/async-retry.svg?style=flat&colorA=080f12&colorB=1fa669

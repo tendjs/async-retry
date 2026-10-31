@@ -32,16 +32,24 @@ npm i @tendjs/async-retry
 
 If you used `@types/async-retry`, remove it. Types ship with the package, and `retry.Options` and `retry.RetryFunction` still work.
 
-To switch without touching code (including transitive usage), alias it:
+To switch without touching your imports, install it under the old name:
+
+```sh
+npm i async-retry@npm:@tendjs/async-retry@^1
+```
+
+If a dependency of yours uses `async-retry`, swap it there too:
 
 ```jsonc
 // package.json
 {
-  "overrides": { "async-retry": "npm:@tendjs/async-retry@^1" }, // npm
+  "overrides": { "async-retry": "$async-retry" }, // npm
   "pnpm": { "overrides": { "async-retry": "npm:@tendjs/async-retry@^1" } }, // pnpm
   "resolutions": { "async-retry": "npm:@tendjs/async-retry@^1" } // yarn
 }
 ```
+
+With npm, `$async-retry` reuses the version from your own `dependencies` (npm rejects an override that differs from it). If `async-retry` is not in your `dependencies`, use `"npm:@tendjs/async-retry@^1"` instead.
 
 ## Usage
 

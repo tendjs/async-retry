@@ -5,7 +5,7 @@ import { extractDts, extractRuntime } from 'tsnapi'
 import { beforeAll, describe, expect, it } from 'vitest'
 
 const root = fileURLToPath(new URL('..', import.meta.url))
-const snapshots = '__snapshots__/tsnapi/@nyxs1874/async-retry'
+const snapshots = '__snapshots__/tsnapi/@tendjs/async-retry'
 
 function read(file: string): Promise<string> {
   return readFile(new URL(`../dist/${file}`, import.meta.url), 'utf8')

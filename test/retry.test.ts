@@ -4,7 +4,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import ours from '../src'
 
 const implementations = [
-  ['@nyxs1874/async-retry', ours],
+  ['@tendjs/async-retry', ours],
   ['async-retry', original],
 ] as const
 
@@ -26,7 +26,7 @@ describe.each(implementations)('%s', (_, retry) => {
   })
 })
 
-describe('@nyxs1874/async-retry', () => {
+describe('@tendjs/async-retry', () => {
   it('does not change the options object', async () => {
     const options = Object.freeze({ retries: 0 })
 

@@ -9,7 +9,7 @@ import ours from '../src'
 import { settle, sleep } from './helpers'
 
 const implementations = [
-  ['@nyxs1874/async-retry', ours],
+  ['@tendjs/async-retry', ours],
   ['async-retry', original],
 ] as const
 

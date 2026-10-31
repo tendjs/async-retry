@@ -1,17 +1,17 @@
 {
-  "name": "@nyxs1874/async-retry",
+  "name": "@tendjs/async-retry",
   "type": "module",
   "version": "0.0.0",
   "packageManager": "pnpm@12.15.0",
   "description": "Retrying made simple, easy and async. Maintained drop-in replacement for async-retry.",
   "author": "Adnan Labiadh <224436613+nyxs1874@users.noreply.github.com>",
   "license": "MIT",
-  "homepage": "https://github.com/nyxs1874/async-retry#readme",
+  "homepage": "https://github.com/tendjs/async-retry#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nyxs1874/async-retry.git"
+    "url": "git+https://github.com/tendjs/async-retry.git"
   },
-  "bugs": "https://github.com/nyxs1874/async-retry/issues",
+  "bugs": "https://github.com/tendjs/async-retry/issues",
   "keywords": [
     "retry",
     "async",

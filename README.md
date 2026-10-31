@@ -1,4 +1,4 @@
-# @nyxs1874/async-retry
+# @tendjs/async-retry
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
@@ -20,14 +20,14 @@ Calls an async (or sync) function until it succeeds, waiting longer after each f
 ## Install
 
 ```sh
-npm i @nyxs1874/async-retry
+npm i @tendjs/async-retry
 ```
 
 ## Migrating from `async-retry`
 
 ```diff
 - import retry from 'async-retry'
-+ import retry from '@nyxs1874/async-retry'
++ import retry from '@tendjs/async-retry'
 ```
 
 If you used `@types/async-retry`, remove it. Types ship with the package, and `retry.Options` and `retry.RetryFunction` still work.
@@ -37,16 +37,16 @@ To switch without touching code (including transitive usage), alias it:
 ```jsonc
 // package.json
 {
-  "overrides": { "async-retry": "npm:@nyxs1874/async-retry@^1" }, // npm
-  "pnpm": { "overrides": { "async-retry": "npm:@nyxs1874/async-retry@^1" } }, // pnpm
-  "resolutions": { "async-retry": "npm:@nyxs1874/async-retry@^1" } // yarn
+  "overrides": { "async-retry": "npm:@tendjs/async-retry@^1" }, // npm
+  "pnpm": { "overrides": { "async-retry": "npm:@tendjs/async-retry@^1" } }, // pnpm
+  "resolutions": { "async-retry": "npm:@tendjs/async-retry@^1" } // yarn
 }
 ```
 
 ## Usage
 
 ```js
-import retry from '@nyxs1874/async-retry'
+import retry from '@tendjs/async-retry'
 
 const data = await retry(
   async (bail) => {
@@ -65,7 +65,7 @@ const data = await retry(
 )
 ```
 
-`require('@nyxs1874/async-retry')` returns the function, like `async-retry` did. `import { retry } from '@nyxs1874/async-retry'` works as well.
+`require('@tendjs/async-retry')` returns the function, like `async-retry` did. `import { retry } from '@tendjs/async-retry'` works as well.
 
 ### API
 
@@ -126,7 +126,7 @@ Apart from the fixes above:
 
 - The options object you pass is not modified. `async-retry` set `options.randomize = true` on it.
 
-Any other behaviour difference is a bug. Please [open an issue](https://github.com/nyxs1874/async-retry/issues).
+Any other behaviour difference is a bug. Please [open an issue](https://github.com/tendjs/async-retry/issues).
 
 ## Credits
 
@@ -138,13 +138,13 @@ Based on [`async-retry`](https://github.com/vercel/async-retry) by Guillermo Rau
 
 <!-- Badges -->
 
-[npm-version-src]: https://img.shields.io/npm/v/@nyxs1874/async-retry?style=flat&colorA=080f12&colorB=1fa669
-[npm-version-href]: https://npmx.dev/package/@nyxs1874/async-retry
-[npm-downloads-src]: https://img.shields.io/npm/dm/@nyxs1874/async-retry?style=flat&colorA=080f12&colorB=1fa669
-[npm-downloads-href]: https://npmx.dev/package/@nyxs1874/async-retry
-[bundle-src]: https://img.shields.io/bundlephobia/minzip/@nyxs1874/async-retry?style=flat&colorA=080f12&colorB=1fa669&label=minzip
-[bundle-href]: https://bundlephobia.com/result?p=@nyxs1874/async-retry
-[ci-src]: https://img.shields.io/github/actions/workflow/status/nyxs1874/async-retry/ci.yml?style=flat&colorA=080f12&label=CI
-[ci-href]: https://github.com/nyxs1874/async-retry/actions/workflows/ci.yml
-[license-src]: https://img.shields.io/github/license/nyxs1874/async-retry.svg?style=flat&colorA=080f12&colorB=1fa669
-[license-href]: https://github.com/nyxs1874/async-retry/blob/main/LICENSE.md
+[npm-version-src]: https://img.shields.io/npm/v/@tendjs/async-retry?style=flat&colorA=080f12&colorB=1fa669
+[npm-version-href]: https://npmx.dev/package/@tendjs/async-retry
+[npm-downloads-src]: https://img.shields.io/npm/dm/@tendjs/async-retry?style=flat&colorA=080f12&colorB=1fa669
+[npm-downloads-href]: https://npmx.dev/package/@tendjs/async-retry
+[bundle-src]: https://img.shields.io/bundlephobia/minzip/@tendjs/async-retry?style=flat&colorA=080f12&colorB=1fa669&label=minzip
+[bundle-href]: https://bundlephobia.com/result?p=@tendjs/async-retry
+[ci-src]: https://img.shields.io/github/actions/workflow/status/tendjs/async-retry/ci.yml?style=flat&colorA=080f12&label=CI
+[ci-href]: https://github.com/tendjs/async-retry/actions/workflows/ci.yml
+[license-src]: https://img.shields.io/github/license/tendjs/async-retry.svg?style=flat&colorA=080f12&colorB=1fa669
+[license-href]: https://github.com/tendjs/async-retry/blob/main/LICENSE.md

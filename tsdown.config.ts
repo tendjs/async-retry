@@ -13,7 +13,7 @@ const shared = {
 /**
  * Drop-in replacements must keep working for require() users. The CJS entry
  * has a single default export, so it builds to `module.exports = retry` and
- * `require('@nyxs1874/async-retry')` returns the function, like async-retry.
+ * `require('@tendjs/async-retry')` returns the function, like async-retry.
  */
 export default defineConfig([
   {

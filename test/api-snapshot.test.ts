@@ -1,10 +1,8 @@
 import { readFile } from 'node:fs/promises'
-import { fileURLToPath } from 'node:url'
-import { guardStaleBuild } from 'tsdown-stale-guard'
 import { extractDts, extractRuntime } from 'tsnapi'
 import { beforeAll, describe, expect, it } from 'vitest'
+import { guardBuild } from './helpers'
 
-const root = fileURLToPath(new URL('..', import.meta.url))
 const snapshots = '__snapshots__/tsnapi/@tendjs/async-retry'
 
 function read(file: string): Promise<string> {
@@ -15,9 +13,7 @@ function read(file: string): Promise<string> {
 // of "." replaces the `import` one, and it cannot read `export =`. Snapshot
 // each build separately instead.
 describe('api snapshot', () => {
-  beforeAll(async () => {
-    await guardStaleBuild({ root })
-  })
+  beforeAll(guardBuild)
 
   it('esm runtime', async () => {
     await expect(await extractRuntime('index.mjs', await read('index.mjs')))

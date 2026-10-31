@@ -4,18 +4,16 @@ import { execFile } from 'node:child_process'
 import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
-import { guardStaleBuild } from 'tsdown-stale-guard'
 import { beforeAll, describe, expect, it } from 'vitest'
 import cjsEntry from '../src/index.cjs'
+import { guardBuild } from './helpers'
 
 const root = fileURLToPath(new URL('..', import.meta.url))
 const require = createRequire(import.meta.url)
 const esmPath = new URL('../dist/index.mjs', import.meta.url).href
 const cjsPath = fileURLToPath(new URL('../dist/index.cjs', import.meta.url))
 
-beforeAll(async () => {
-  await guardStaleBuild({ root })
-})
+beforeAll(guardBuild)
 
 describe('upstream #103: (0 , async_retry_1.retry) is not a function', () => {
   it('require() returns the function, with .retry and .default', () => {

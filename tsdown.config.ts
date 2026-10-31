@@ -5,9 +5,18 @@ const shared = {
   dts: true,
   publint: true,
   attw: true,
-  plugins: [
-    StaleGuardRecorder(),
-  ],
+}
+
+/**
+ * The two builds run in parallel, so each records its own stale-guard hash
+ * file (test/helpers.ts checks both). Outputs are not hashed because each
+ * recorder would read dist/ while the other build is still writing to it.
+ */
+function staleGuard(name: string): ReturnType<typeof StaleGuardRecorder> {
+  return StaleGuardRecorder({
+    hashFile: `node_modules/.cache/tsdown-stale-guard/${name}.yaml`,
+    hashOutputs: false,
+  })
 }
 
 /**
@@ -20,11 +29,17 @@ export default defineConfig([
     ...shared,
     entry: { index: 'src/index.ts' },
     format: 'esm',
+    plugins: [
+      staleGuard('esm'),
+    ],
   },
   {
     ...shared,
     entry: { index: 'src/index.cjs.ts' },
     format: 'cjs',
     clean: false,
+    plugins: [
+      staleGuard('cjs'),
+    ],
   },
 ])

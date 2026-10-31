@@ -1,7 +1,7 @@
 {
   "name": "@tendjs/async-retry",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "packageManager": "pnpm@12.15.0",
   "description": "Retrying made simple, easy and async. Maintained drop-in replacement for async-retry.",
   "author": "Adnan Labiadh <224436613+nyxs1874@users.noreply.github.com>",

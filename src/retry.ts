@@ -102,8 +102,9 @@ export function retry<TRet>(fn: retry.RetryFunction<TRet>, options: retry.Option
         else
           attempt(n + 1)
       }, Math.min(delay, MAX_DELAY))
+      // Outside Node, setTimeout can return a number without unref().
       if (opts.unref)
-        timer.unref()
+        (timer as { unref?: () => void }).unref?.()
 
       if (!opts.onRetry)
         return

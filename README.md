@@ -119,6 +119,7 @@ Bugs I found while reading the code, without an upstream issue:
 - `throw null` or `throw undefined` crashed with a `TypeError` and, from an async function, left the promise pending forever. Other falsy values (`0`, `''`, `false`) stopped retrying. All of them are now retried like any other error.
 - `retries: Infinity` hung the process: `retry` tried to build an infinite list of delays. Now it retries until success, with delays growing up to `maxTimeout`.
 - Delays above 2^31-1 ms (about 24.8 days) fired after 1 ms, because that is what `setTimeout` does with them. They are capped instead.
+- `unref: true` threw a `TypeError` in browsers, where `setTimeout` returns a number that has no `unref()`. The option is now ignored there.
 
 ## Differences from `async-retry`
 

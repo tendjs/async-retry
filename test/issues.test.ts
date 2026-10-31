@@ -428,3 +428,23 @@ describe('delays above 2^31-1 ms', () => {
     expect(fn).toHaveBeenCalledTimes(2)
   })
 })
+
+describe('unref where timers have no unref()', () => {
+  it('retries instead of throwing on timer.unref()', async () => {
+    // Browsers return a plain number from setTimeout, so there is no unref().
+    const realSetTimeout = globalThis.setTimeout
+    vi.spyOn(globalThis, 'setTimeout').mockImplementation((callback, ms) => {
+      const timer = realSetTimeout(callback, ms)
+      Object.defineProperty(timer, 'unref', { value: undefined })
+      return timer
+    })
+
+    const result = await settle(retry((_bail, attempt) => {
+      if (attempt < 2)
+        throw new Error('fail')
+      return attempt
+    }, { ...exact, unref: true }))
+
+    expect(result).toEqual({ status: 'fulfilled', value: 2 })
+  })
+})
